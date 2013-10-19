@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<!--
+    This is an HTML page that contains a CSS and a Javascript file.
+    
+    Run this sample by clicking the 'Preview' button on top;
+    a new tab will open with the current page open.
+-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Fests</title>
+        <link rel="stylesheet" href="css/main.css" type="text/css"/>
+    </head>
+    
+    <body>
+    
+    <div id="mainContent">
+            
+    </div>
+        
+    <script id="festsTemplate" type="text/template">
+    <% _.each(fests, function(fest){ %>
+    <div class="fest">
+        <ul class="festInfo">
+            <li><%= fest.Title %></li>
+            <% for(var i = 1; i <= fest.SemifinalCount; i++){ %>
+            <li><a href="#/fest/<%= fest._id %>/<%= i %>">Semifinal <%= i %></a></li>
+            <% } %>
+            <li><a href="#/fest/<%= fest._id %>/f">Final</a></li>
+        </ul>
+        <img class="festLogo" src=<%= fest.LogoUrl %> />
+    </div>
+    <% }); %>
+    </script>
+    
+    <script id="tabsTemplate" type="text/template">
+    <ul>
+    <% _.each(tabs, function(tab){ %>
+        
+            <li><a href="#<%= tab._id %>"><%= tab.Country.Title %></a></li>
+        
+    <% }); %>
+    </ul>
+    </script>
+    
+    <script id="songTemplate" type="text/template">
+    <% _.each(songs, function(song){ %>
+    <div id="<%= song._id %>">
+			<ul>
+				<li><%= song.Singer %></li>
+				<li><%= song.Title %></li>
+				<li>
+                <iframe width="560" height="315" src="<%= song.Link %>" frameborder="0"></iframe>
+                </li>
+			</ul>
+    </div>
+    <% }); %>
+	</script>
+	
+        
+        
+        <!-- load scripts at the bottom of your page -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+        <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script src="js/lib/underscore.js"></script>
+        <script src="js/lib/backbone.js"></script>
+        <script src="js/models/song.js"></script>
+        <script src="js/models/fest.js"></script>
+        <script src="js/views/songsView.js"></script>
+        <script src="js/views/festsView.js"></script>
+        <script src="js/views/appView.js"></script>
+        <script src="js/site.js"></script>
+        
+    </body>
+</html>

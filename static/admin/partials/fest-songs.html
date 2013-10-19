@@ -1,0 +1,27 @@
+<div class="masterList">
+<input type="button" value="Add" ng-click="addSong()"/>
+    <ul>
+        <li ng-repeat="song in songs" ng-class="{selected : isSelected(song)}">
+            <label class="titleMaster" ng-click="openEdit(song)">{{song.Country.Title}}</label>
+        </li>
+    </ul>
+    
+    </div>
+    <div class="detailFormView">
+        <form>
+            <fieldset>
+                <label>Country:</label>
+                <input type="text" ng-model="currentSong.Country.Title"/>
+                <label>Title:</label>
+                <input type="text" ng-model="currentSong.Title"/>
+                <label>Singer:</label>
+                <input type="text" ng-model="currentSong.Singer"/>
+                <label>Link:</label>
+                <input type="text" ng-model="currentSong.Link"/>
+                <label>Final:</label>
+                <input type="checkbox" ng-model="currentSong.Final"/>
+                <input type="button" ng-click="delete(currentSong._id)" value = "Delete" />
+                <input type="button" ng-click="update(currentSong, isNew)" value="Save"/>
+            </fieldset>
+        </form>
+    </div>

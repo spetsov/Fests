@@ -1,0 +1,64 @@
+body {
+    margin: auto;
+    width: 90%;
+    background-color: #00aedb;
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 1.1em;
+}
+
+fieldset{
+    padding: 20px;
+    text-align: right;
+    width: 350px;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin-left: 50px;
+}
+
+input{
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+input[type="button"]{
+    width: 100px;
+    border: 2px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="button"]:hover{
+    background-color: red;
+    
+}
+
+ul{
+    list-style-type: none;
+}
+
+ul li{
+    margin-left: -25px;
+    margin-bottom: 10px;
+}
+
+#content{
+    padding: 20px;
+    overflow: auto;
+}
+
+.selected{
+    background-color: white;
+}
+
+.titleMaster{
+    display: block;
+    cursor: pointer;
+}
+
+.titleMaster:hover{
+    color: red;
+}
+
+.masterList, .detailFormView{
+    float:left;
+}
