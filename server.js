@@ -209,6 +209,6 @@ app.delete('/fests/:festId', function(request, response){
 
 
 
-app.listen(process.env.PORT, process.env.IP);
+app.listen(3321);
 
 console.log(' > http server started');

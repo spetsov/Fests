@@ -64,6 +64,7 @@ function FestSongsController($scope, $http, $routeParams){
     
     $scope.update = function(currentSong, isNew) {
         var master = angular.copy(currentSong);
+        master.Country = currentSong.Country._id;
        if(isNew){
            master.FestId = $routeParams.festId;
            if($routeParams.semiFinal === "f"){
@@ -73,7 +74,8 @@ function FestSongsController($scope, $http, $routeParams){
                master.Semifinal = $routeParams.semiFinal;
            }
            
-           $http.post("/songs", master).success(function(song){
+           $http.post("/songs", master)
+           .success(function(song){
                $scope.songs.push(song);
                $scope.isNew = false;
                $scope.currentSong = song;
