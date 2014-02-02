@@ -196,6 +196,7 @@ app.put('/fests/:festId', function(request, response){
     });
 });
 
+//Delete a fest
 app.delete('/fests/:festId', function(request, response){
     dal.deleteFest(request.params.festId, function(e){
         if(e){
@@ -207,6 +208,45 @@ app.delete('/fests/:festId', function(request, response){
     });
 });
 
+//Get all countries
+app.get( '/countries', function( request, response ) {
+    dal.getAllCountries(function(countries){
+        response.send(countries);
+    });
+});
+
+//Get a country by id
+app.get( '/countries/:countryId', function( request, response ) {
+    dal.getCountryById(request.params.countryId, function(country){
+        response.send(country);
+    });
+});
+
+//Insert a country
+app.post('/countries', function(request, response){
+    dal.createCountry(request.body, function(country){
+        response.send(country);
+    });
+});
+
+//Update a country
+app.put('/countries/:countryId', function(request, response){
+    dal.updateCountry(request.params.countryId, request.body, function(country){
+        response.send(country);
+    });
+});
+
+//Delete a country
+app.delete('/countrys/:countryId', function(request, response){
+    dal.deleteCountry(request.params.countryId, function(e){
+        if(e){
+            response.send(500, e);
+        }
+        else{
+            response.send(200);
+        }
+    });
+});
 
 
 app.listen(3321);

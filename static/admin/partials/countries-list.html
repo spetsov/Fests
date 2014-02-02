@@ -1,0 +1,25 @@
+    <div class="masterList">
+        <input type="button" value="Add" ng-click="addCountry()"/>
+        <ul class="verticalMenu">
+            <li ng-repeat="country in countries">
+                <label class="titleMaster" ng-click="openEdit(country)">{{country.Title}}</label>
+            </li>
+        </ul>
+
+    </div>
+    <div class="detailFormView">
+        <form>
+            <fieldset>
+                <legend>Country</legend>
+                <label>Title:</label>
+                <input type="text" ng-model="currentCountry.Title"/>
+                <label>FlagUrl:</label>
+                <input type="text" ng-model="currentCountry.FlagUrl"/>
+                <div>
+                    <input type="button" ng-click="delete(currentCountry._id)" value = "Delete" />
+                    <input type="button" ng-click="update(currentCountry, isNew)" value="Save"/>
+                </div>
+                
+            </fieldset>
+        </form>
+    </div>

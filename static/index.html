@@ -22,7 +22,7 @@
     <script id="festsTemplate" type="text/template">
     <% _.each(fests, function(fest){ %>
     <div class="fest">
-        <ul class="festInfo">
+        <ul class="verticalMenu festInfo">
             <li><%= fest.Title %></li>
             <% for(var i = 1; i <= fest.SemifinalCount; i++){ %>
             <li><a href="#/fest/<%= fest._id %>/<%= i %>">Semifinal <%= i %></a></li>
@@ -35,10 +35,10 @@
     </script>
     
     <script id="tabsTemplate" type="text/template">
-    <ul>
+    <ul class="verticalMenu">
     <% _.each(tabs, function(tab){ %>
         
-            <li><a href="#<%= tab._id %>"><%= tab.Country.Title %></a></li>
+            <li><a href="#<%= tab._id %>"><img src='<%= tab.Country.FlagUrl %>'/><%= tab.Country.Title %></a></li>
         
     <% }); %>
     </ul>
@@ -47,10 +47,9 @@
     <script id="songTemplate" type="text/template">
     <% _.each(songs, function(song){ %>
     <div id="<%= song._id %>">
-			<ul>
+			<ul class="verticalMenu">
 				<li><%= song.Singer %></li>
                 <li><%= song.Title %></li>
-				<li><%= song.Country.Title %></li>
 				<li>
                 <iframe width="560" height="315" src="<%= song.Link %>" frameborder="0"></iframe>
                 </li>

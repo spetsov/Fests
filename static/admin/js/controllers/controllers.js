@@ -49,11 +49,20 @@ function FestController($scope, $http){
 
 function FestSongsController($scope, $http, $routeParams){
     var requestUrl = "/songs/" + $routeParams.festId + "/" + $routeParams.semiFinal;
+    var countriesUrl = "/countries"
+
     $scope.getSongs = function(){
         
         $http.get(requestUrl).success(function(songs){
             $scope.songs = songs;
             $scope.openEdit(songs[0]);
+        });
+    };
+
+    $scope.getCountries = function(){
+        
+        $http.get(countriesUrl).success(function(countries){
+            $scope.countries = countries;
         });
     };
     
@@ -110,5 +119,55 @@ function FestSongsController($scope, $http, $routeParams){
  
     $scope.reset();
     $scope.getSongs();
+    $scope.getCountries();
     
+};
+
+function CountriesController($scope, $http){
+ 
+    $scope.getCountries = function(){
+        $http.get("/countries").success(function(countries){
+            $scope.countries = countries;
+            $scope.currentCountry = countries[0];
+        });
+    };
+    
+    $scope.openEdit = function(country){
+        $scope.isNew = false;
+        $scope.currentCountry = country;
+    }
+    
+    $scope.update = function(currentCountry, isNew) {
+       var master = angular.copy(currentCountry);
+       if(isNew){
+           $http.post("/countries", master).success(function(country){
+               $scope.countries.push(country);
+               $scope.isNew = false;
+               $scope.currentCountry = country;
+           });
+       }
+       else{
+           $http.put("/countries/" + currentCountry._id, master);
+       }
+    };
+    
+    $scope.addCountry = function(){
+        $scope.isNew = true;
+        $scope.reset();
+    };
+ 
+    $scope.reset = function() {
+       $scope.currentCountry = {};
+    };
+    
+    $scope.delete = function(countryId){
+        $http.delete("/countries/" + countryId).success(function(err){
+                var index = $scope.countries.indexOf($scope.currentCountry);
+                $scope.countries = $scope.countries.splice(index-1, 1);
+                $scope.openEdit($scope.countries[0]);
+        });;
+    };
+ 
+    $scope.reset();
+    $scope.getCountries();
 };

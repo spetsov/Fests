@@ -1,6 +1,7 @@
 var festsApp = angular.module("fests", []).
   config(['$routeProvider', function($routeProvider) {
   $routeProvider.
+      when('/countries', {templateUrl: 'partials/countries-list.html',   controller: CountriesController}).
       when('/fests', {templateUrl: 'partials/fests-list.html',   controller: FestController}).
       when('/fests/:festId/:semiFinal', {templateUrl: 'partials/fest-songs.html', controller: FestSongsController}).
       otherwise({redirectTo: '/fests'});

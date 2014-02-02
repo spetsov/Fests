@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html ng-app="fests">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="css/main.css" type="text/css"/>
-        <script src="../js/lib/angular.js"></script>
-        <script src="js/app.js"></script>
-        <script src="js/controllers/controllers.js"></script>
-        <title>Admin</title>
-    </head>
-    <body ng-controller='FestController'>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/main.css" type="text/css"/>
+    <script src="../js/lib/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/controllers.js"></script>
+    <title>Admin</title>
+</head>
+<body ng-controller='FestController'>
     <header>
         <h1>Welcome to Fests admin</h1>
     </header>
+    <section>
+        <ul class="horizontalMenu">
+            <li><a href="/admin/#/fests">Fests</a></li>
+            <li><a href="/admin/#/countries">Countries</a></li>
+        </ul>
+    </section>
     <div id="content" ng-view>
-    
+
     </div>
-    </body>
+</body>
 </html>

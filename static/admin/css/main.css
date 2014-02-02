@@ -15,7 +15,7 @@ fieldset{
     margin-left: 50px;
 }
 
-input{
+input, select{
     width: 250px;
     margin-bottom: 20px;
 }
@@ -36,7 +36,7 @@ ul{
     list-style-type: none;
 }
 
-ul li{
+.verticalMenu li{
     margin-left: -25px;
     margin-bottom: 10px;
 }
@@ -62,3 +62,26 @@ ul li{
 .masterList, .detailFormView{
     float:left;
 }
+
+.horizontalMenu{
+    float:left;
+    width:100%;
+    padding:0;
+    margin:0;
+}
+
+.horizontalMenu li{
+    display:inline;
+}
+
+.horizontalMenu a{
+    float:left;
+    width:6em;
+    text-decoration:none;
+    color:white;
+    background-color:purple;
+    padding:0.2em 0.6em;
+    border-right:1px solid white;
+}
+
+.horizontalMenu a:hover {background-color:#ff3300;}

@@ -1,15 +1,16 @@
     <div class="masterList">
-    <input type="button" value="Add" ng-click="addFest()"/>
-    <ul>
-        <li ng-repeat="fest in fests">
-            <label class="titleMaster" ng-click="openEdit(fest)">{{fest.Title}}</label>
-        </li>
-    </ul>
-    
+        <input type="button" value="Add" ng-click="addFest()"/>
+        <ul class="verticalMenu">
+            <li ng-repeat="fest in fests">
+                <label class="titleMaster" ng-click="openEdit(fest)">{{fest.Title}}</label>
+            </li>
+        </ul>
+
     </div>
     <div class="detailFormView">
         <form>
             <fieldset>
+                <legend>Fest</legend>
                 <label>Title:</label>
                 <input type="text" ng-model="currentFest.Title"/>
                 <label>Logo Url:</label>
@@ -17,16 +18,22 @@
                 <label>Semis:</label>
                 <input type="text" ng-model="currentFest.SemifinalCount"/>
                 <div>
-                <input type="button" ng-click="delete(currentFest._id)" value = "Delete" />
-                <input type="button" ng-click="update(currentFest, isNew)" value="Save"/>
+                    <input type="button" ng-click="delete(currentFest._id)" value = "Delete" />
+                    <input type="button" ng-click="update(currentFest, isNew)" value="Save"/>
                 </div>
-                <span ng-repeat="i in [] | range:currentFest.SemifinalCount">
-                <a href="/admin/#/fests/{{currentFest._id}}/{{i}}">Semifinal {{i}}</a>
-                </span>
-                <span>
-                <a href="/admin/#/fests/{{currentFest._id}}/f">Final</a>
-                </span>
                 
             </fieldset>
         </form>
+        <div style="float:right;">
+            <ul class="verticalMenu">
+                <li ng-repeat="i in [] | range:currentFest.SemifinalCount">
+                    <a href="/admin/#/fests/{{currentFest._id}}/{{i}}">Semifinal {{i}}</a>
+                </li>
+                <li>
+                    <a href="/admin/#/fests/{{currentFest._id}}/f">Final</a>
+                </li>
+
+
+            </ul>
+        </div>
     </div>
