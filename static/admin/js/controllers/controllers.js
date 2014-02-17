@@ -38,7 +38,7 @@ function FestController($scope, $http){
     $scope.delete = function(festId){
         $http.delete("/fests/" + festId).success(function(err){
                 var index = $scope.fests.indexOf($scope.currentFest);
-                $scope.fests = $scope.fests.splice(index-1, 1);
+                $scope.fests.splice(index, 1);
                 $scope.openEdit($scope.fests[0]);
         });;
     };
@@ -73,6 +73,7 @@ function FestSongsController($scope, $http, $routeParams){
     
     $scope.update = function(currentSong, isNew) {
         var master = angular.copy(currentSong);
+        
         master.Country = currentSong.Country._id;
        if(isNew){
            master.FestId = $routeParams.festId;
@@ -84,10 +85,11 @@ function FestSongsController($scope, $http, $routeParams){
            }
            
            $http.post("/songs", master)
-           .success(function(song){
-               $scope.songs.push(song);
+           .success(function(songs){
+               $scope.songs.push(songs[0]);
                $scope.isNew = false;
-               $scope.currentSong = song;
+               $scope.currentSong = angular.copy(songs[0]);
+               
            });
        }
        else{
@@ -108,7 +110,7 @@ function FestSongsController($scope, $http, $routeParams){
     $scope.delete = function(songId){
         $http.delete("/songs/" + songId).success(function(err){
                 var index = $scope.songs.indexOf($scope.currentSong);
-                $scope.songs = $scope.songs.splice(index-1, 1);
+                $scope.songs.splice(index, 1);
                 $scope.openEdit($scope.songs[0]);
         });
     };
@@ -163,7 +165,7 @@ function CountriesController($scope, $http){
     $scope.delete = function(countryId){
         $http.delete("/countries/" + countryId).success(function(err){
                 var index = $scope.countries.indexOf($scope.currentCountry);
-                $scope.countries = $scope.countries.splice(index-1, 1);
+                $scope.countries.splice(index, 1);
                 $scope.openEdit($scope.countries[0]);
         });;
     };
