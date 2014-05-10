@@ -1,3 +1,4 @@
+/*jslint node: true */
 'use strict';
 
 // Module dependencies.
@@ -26,11 +27,11 @@ passport.deserializeUser(function(id, done) {
 //   the request will proceed.  Otherwise, the user will be redirected to the
 //   login page.
 function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) { 
+  if (req.isAuthenticated()) {
       return next(); }
   req.session.returnUrl = req.url;
   res.redirect('/login.html');
-};
+}
 
 //local auth
 passport.use(new LocalStrategy(
@@ -85,7 +86,7 @@ app.configure( function() {
 // Routes
 
 //admin
-app.get('/admin/*', 
+app.get('/admin/*',
     ensureAuthenticated
 );
 
@@ -248,7 +249,7 @@ app.delete('/countrys/:countryId', function(request, response){
     });
 });
 
+var port = 3321;
+app.listen(port);
 
-app.listen(3321);
-
-console.log(' > http server started');
+console.log(" > http server listenining on port " + port);
