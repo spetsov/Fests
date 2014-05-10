@@ -1,0 +1,27 @@
+{
+  "name": "Fests",
+  "version": "1.0.0",
+  "homepage": "https://github.com/spetsov/Fests",
+  "authors": [
+    "spetsov <spsetsov@gmail.com>"
+  ],
+  "description": "Fests",
+  "main": "server.js",
+  "keywords": [
+    "fests"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "static/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.16",
+    "underscore": "~1.6.0"
+  }
+}

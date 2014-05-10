@@ -1,0 +1,35 @@
+{
+  "name": "Fests",
+  "version": "0.0.0",
+  "description": "Fests",
+  "main": "server.js",
+  "dependencies": {
+    "passport": "~0.1.17",
+    "path": "~0.4.9",
+    "express": "~3.3.4",
+    "mongoose": "~3.6.16",
+    "passport-facebook": "~1.0.0",
+    "passport-local": "~0.1.6",
+    "node.extend": "~1.0.7"
+  },
+  "devDependencies": {
+    "node-inspector": "~0.7.3"
+    },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spetsov/Fests.git"
+  },
+  "keywords": [
+    "fests"
+  ],
+  "author": "Svetoslav Petsov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spetsov/Fests/issues"
+  },
+  "homepage": "https://github.com/spetsov/Fests"
+}
