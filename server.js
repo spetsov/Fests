@@ -4,7 +4,7 @@
 // Module dependencies.
 var application_root = __dirname,
     fs = require('fs'),
-    dal = require('dal'),
+    dal = require('./dal.js'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     express = require( 'express' ), //Web framework
