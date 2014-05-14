@@ -10,7 +10,7 @@ db.on('open', function(){
         if(err){
             console.log(err);
         }
-        else{
+        else {
         console.log("saved");
         }
     });
